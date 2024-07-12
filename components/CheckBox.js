@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 const CheckBox = ({item, selectedItems, onChange}) => {
   // copy of selectedItems to be manipulated easier
@@ -9,8 +9,7 @@ const CheckBox = ({item, selectedItems, onChange}) => {
 
   return (
     <TouchableOpacity
-      // ternary that defines the style of the component if it's checked or not
-      style={active ? [styles.activeCheckBox] : styles.checkBox}
+      // style={active ? [styles.activeCheckBox] : styles.checkBox}
       onPress={() => {
         // if already selected, item is filtered out of selectedItemsArray
         if (active) {
@@ -24,23 +23,36 @@ const CheckBox = ({item, selectedItems, onChange}) => {
         // apply the changes
         onChange(selectedItemsArray);
       }}>
-      <Text>{item.label}</Text>
+      <Image
+        source={
+          // ternary that defines the image of the component if it's checked or not
+          active
+            ? require('../assets/checkedRadiobtn.png')
+            : require('../assets/unCheckRadioBtn.png')
+        }
+        style={styles.checkBox}
+        resizeMode="contain"
+      />
+      {/*{require('../assets/test.png')}*/}
+      <Text style={active ? styles.activeCheckBox : styles.checkBox}>
+        {item.value.substring(0, 3)}
+      </Text>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   checkBox: {
-    marginHorizontal: 2,
-    padding: 1,
-    backgroundColor: '#DDDDDD',
-    borderRadius: 3,
+    color: 'white',
+    alignItems: 'center',
+    marginHorizontal: 10,
+    textAlign: 'center',
   },
   activeCheckBox: {
-    marginHorizontal: 2,
-    padding: 1,
-    backgroundColor: '#06b6d4',
-    borderRadius: 3,
+    color: '#78BD32',
+    alignItems: 'center',
+    marginHorizontal: 10,
+    textAlign: 'center',
   },
 });
 

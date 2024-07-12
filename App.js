@@ -1,16 +1,16 @@
-import {Text, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import CheckBoxList from './components/CheckBoxList';
 import {useState} from 'react';
 
 function App() {
   // 'useState' Hook, with an empty array as initial state
   const [value, setValue] = useState([]);
-
+  // boolean to switch between two display
+  const [boolean, changeBoolean] = useState(false);
   return (
-    <View style={styles.container}>
-      <Text style={styles.sectionTitle}>Your Goal</Text>
-      <Text style={styles.sectionDescription}>How many training sessions?</Text>
+    <View style={styles.mainContainer}>
       <CheckBoxList
+        //initialisation of the checkBoxList's options
         listOfOptions={[
           {label: 'Monday', value: 'Monday'},
           {label: 'Tuesday', value: 'Tuesday'},
@@ -20,31 +20,26 @@ function App() {
           {label: 'Saturday', value: 'Saturday'},
           {label: 'Sunday', value: 'Sunday'},
         ]}
+        beforeSelectionTitle={'Your Goal'}
+        beforeSelectionDescription={'How many training sessions ?'}
+        afterSelectionTitle={'Day(s) selected'}
+        //use state
         selectedItems={value}
         onChange={setValue}
+        // boolean setted with submit button
+        boolean={boolean}
+        changeBoolean={changeBoolean}
       />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    textAlign: 'center',
-  },
-  highlight: {
-    fontWeight: '700',
+  mainContainer: {
+    backgroundColor: 'black',
+    paddingVertical: 100,
+    paddingHorizontal: 20,
+    height: '100%',
   },
 });
 export default App;
