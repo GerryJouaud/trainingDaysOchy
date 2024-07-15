@@ -1,12 +1,8 @@
-import {
-  FlatList,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
 import CheckBox from './CheckBox';
+import CallToAction from './CallToAction';
+import CancelButton from './CancelButton';
+import ProgressBar from './ProgressBar';
 
 // This component needs to be initialized in CheckBoxList's props with:
 // - list of Options': {[{label:"",value:""}]}
@@ -33,11 +29,8 @@ const CheckBoxList = ({
       <View style={styles.mainContainer}>
         <View style={styles.sectionTitle}>
           <Text style={styles.sectionTitle}>{afterSelectionTitle}</Text>
-          {/*progress bar 100%*/}
-          <View style={styles.progressBarBox}>
-            <View style={styles.progressBarFull} />
-            <View style={styles.progressBarFull} />
-          </View>
+          {/*Progress bar 2/2 */}
+          <ProgressBar numberSuccessSteps={2} numberRemainingSteps={0} />
         </View>
         {/*List of the selected items*/}
         <FlatList
@@ -52,36 +45,24 @@ const CheckBoxList = ({
             </View>
           )}
         />
-        {/*//Button Next*/}
-        <TouchableOpacity
-          style={styles.submitButton}
-          onPress={() => {
-            alert('To be continued..?');
-          }}>
-          <Text style={styles.submitButtonText}>Next</Text>
-        </TouchableOpacity>
-        {/*Button cancel*/}
+
+        <CallToAction
+          disabledCondition={null}
+          onPressAction={() => alert('To be continued..?')}
+          text="Next"
+        />
         <View>
-          <TouchableOpacity
-            style={styles.cancelButton}
-            onPress={() => {
-              changeBoolean(!boolean);
-            }}>
-            <Text style={styles.cancelButton}>Cancel</Text>
-          </TouchableOpacity>
+          <CancelButton onPressAction={() => changeBoolean(!boolean)} />
         </View>
       </View>
     );
   } else {
-    //------------- display after selection ---------------//
+    //------------- display before selection ---------------//
     return (
       <View style={styles.mainContainer}>
         <Text style={styles.sectionTitle}>{beforeSelectionTitle}</Text>
-        {/*Progress bar 50%*/}
-        <View style={styles.progressBarBox}>
-          <View style={styles.progressBarFull} />
-          <View style={styles.progressBarEmpty} />
-        </View>
+        {/* Progress bar 1/2 */}
+        <ProgressBar numberSuccessSteps={1} numberRemainingSteps={1} />
         <Text style={styles.sectionDescription}>
           {beforeSelectionDescription}
         </Text>
@@ -96,79 +77,22 @@ const CheckBoxList = ({
             />
           ))}
         </View>
-        {/*Button Next*/}
-        <TouchableOpacity
-          disabled={emptyArray}
-          style={emptyArray ? styles.disabledButton : styles.submitButton}
-          onPress={() => {
-            changeBoolean(!boolean);
-          }}>
-          <Text style={styles.submitButtonText}>Next</Text>
-        </TouchableOpacity>
+
+        {/*This CTA will not be clickable until a check box will be selected*/}
+        <CallToAction
+          disabledCondition={emptyArray}
+          // change boolean here display the second step of the selection
+          onPressAction={() => changeBoolean(!boolean)}
+          text="Next"
+        />
         <View>
-          {/*Button Cancel*/}
-          <TouchableOpacity
-            style={styles.cancelButton}
-            onPress={() => {
-              alert('To be continued..?');
-            }}>
-            <Text style={styles.cancelButton}>Cancel</Text>
-          </TouchableOpacity>
+          <CancelButton onPressAction={() => alert('To be continued..?')} />
         </View>
       </View>
     );
   }
 };
 const styles = StyleSheet.create({
-  progressBarBox: {
-    width: '100%',
-    flexDirection: 'row',
-  },
-  progressBarEmpty: {
-    marginVertical: 20,
-    borderRadius: 5,
-    borderWidth: 1,
-    padding: 2,
-    width: '50%',
-    borderColor: 'black',
-    backgroundColor: 'grey',
-  },
-  progressBarFull: {
-    marginVertical: 20,
-    borderRadius: 5,
-    borderWidth: 1,
-    padding: 2,
-    width: '50%',
-    borderColor: 'black',
-    backgroundColor: 'green',
-  },
-  cancelButton: {
-    borderRadius: 5,
-    paddingVertical: 5,
-    marginTop: 5,
-    marginHorizontal: 20,
-    color: 'white',
-    textAlign: 'center',
-  },
-  disabledButton: {
-    backgroundColor: 'grey',
-    borderRadius: 5,
-    paddingVertical: 5,
-    marginTop: 5,
-    marginHorizontal: 20,
-    opacity: 0.3,
-  },
-  submitButton: {
-    backgroundColor: 'green',
-    borderRadius: 5,
-    paddingVertical: 5,
-    marginTop: 5,
-    marginHorizontal: 20,
-  },
-  submitButtonText: {
-    color: 'white',
-    textAlign: 'center',
-  },
   selectItemsList: {
     padding: 10,
     alignItems: 'flex-start',
