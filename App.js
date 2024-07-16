@@ -23,7 +23,7 @@ function App() {
         ]}
         beforeSelectionTitle={'Your Goal'}
         beforeSelectionDescription={'How many training sessions ?'}
-        afterSelectionTitle={'Day(s) selected'}
+        afterSelectionTitle={'Days selected'}
         //use state
         selectedItems={value}
         onChange={setValue}

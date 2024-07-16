@@ -34,7 +34,10 @@ const CheckBox = ({item, selectedItems, onChange}) => {
         resizeMode="contain"
       />
       {/*{require('../assets/test.png')}*/}
-      <Text style={active ? styles.activeCheckBoxText : styles.unactiveCheckBoxText}>
+      <Text
+        style={
+          active ? styles.activeCheckBoxText : styles.unactiveCheckBoxText
+        }>
         {item.value.substring(0, 3)}
       </Text>
     </TouchableOpacity>
@@ -42,32 +45,33 @@ const CheckBox = ({item, selectedItems, onChange}) => {
 };
 
 const styles = StyleSheet.create({
-  activeContainerCheckBox:{
-    flex:1,
+  activeContainerCheckBox: {
+    flex: 1,
     backgroundColor: 'rgba(0,255,0,0.05)',
-
     alignItems: 'center',
     borderStyle: 'solid',
-    borderWidth:1,
-    borderColor:'#78BD32',
-    borderRadius:12,
-    padding: 8,
-    marginHorizontal:3,
+    borderWidth: 1,
+    borderColor: '#78BD32',
+    borderRadius: 12,
+    padding: 7,
+    marginHorizontal: 3,
   },
-  containerCheckBox:{
-    flex:1,
+  containerCheckBox: {
+    flex: 1,
     alignItems: 'center',
     // 1 more padding cause of the border radius
-    padding: 9,
-    marginHorizontal:3,
+    padding: 8,
+    marginHorizontal: 3,
   },
   unactiveCheckBoxText: {
-    marginTop:10,
+    marginTop: 10,
     color: 'white',
+    fontFamily: 'SpaceGrotesk-Medium',
   },
   activeCheckBoxText: {
-    marginTop:10,
+    marginTop: 10,
     color: '#78BD32',
+    fontFamily: 'SpaceGrotesk-Medium',
   },
 });
 

@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   },
   container: {
     width: '100%',
-    height: '24%',
+    height: '23%',
     alignItems: 'center',
     flexDirection: 'row',
     marginVertical: 100,
@@ -138,15 +138,17 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     color: 'white',
     fontSize: 40,
+    fontFamily: 'SpaceGrotesk-Medium',
     fontWeight: '600',
     textAlign: 'center',
     alignItems: 'center',
   },
   sectionDescription: {
-    color: 'grey',
+    color: 'lightgrey',
     fontSize: 20,
     fontWeight: '300',
     textAlign: 'center',
+    fontFamily: 'SpaceGrotesk-Medium',
   },
 });
 

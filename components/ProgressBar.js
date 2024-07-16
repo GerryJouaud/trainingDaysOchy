@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   },
   progressBarEmpty: {
     marginVertical: 10,
+    marginHorizontal: 2,
     borderRadius: 5,
     borderWidth: 1,
     padding: 2,
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
   },
   progressBarFull: {
     marginVertical: 10,
+    marginHorizontal: 2,
     borderRadius: 5,
     borderWidth: 1,
     padding: 2,

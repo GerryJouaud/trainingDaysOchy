@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 25,
     padding: 8,
+    fontFamily: 'SpaceGrotesk-Medium',
   },
 });
 export default CallToAction;

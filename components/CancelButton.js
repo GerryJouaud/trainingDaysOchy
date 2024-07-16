@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     color: 'white',
     textAlign: 'center',
-    fontSize:25,
-    padding:8,
-
+    fontSize: 25,
+    fontFamily: 'SpaceGrotesk-Medium',
+    padding: 8,
   },
 });
 export default CancelButton;
