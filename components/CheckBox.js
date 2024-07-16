@@ -58,6 +58,8 @@ const styles = StyleSheet.create({
   },
   containerCheckBox: {
     flex: 1,
+    backgroundColor: 'rgba(59,59,59,0.1)',
+    borderRadius: 12,
     alignItems: 'center',
     // 1 more padding cause of the border radius
     padding: 8,
