@@ -15,32 +15,24 @@ const CallToAction = ({disabledCondition, onPressAction, text}) => {
   );
 };
 const styles = StyleSheet.create({
-  cancelButton: {
-    borderRadius: 5,
-    paddingVertical: 5,
-    marginTop: 5,
-    marginHorizontal: 20,
-    color: 'white',
-    textAlign: 'center',
-  },
   disabledButton: {
     backgroundColor: 'grey',
     borderRadius: 5,
     paddingVertical: 5,
-    marginTop: 5,
-    marginHorizontal: 20,
+    marginVertical: 10,
     opacity: 0.3,
   },
   submitButton: {
-    backgroundColor: 'green',
+    backgroundColor: '#78BD32',
     borderRadius: 5,
     paddingVertical: 5,
-    marginTop: 5,
-    marginHorizontal: 20,
+    marginVertical: 10,
   },
   submitButtonText: {
     color: 'white',
     textAlign: 'center',
+    fontSize: 25,
+    padding: 8,
   },
 });
 export default CallToAction;

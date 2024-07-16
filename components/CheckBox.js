@@ -9,7 +9,7 @@ const CheckBox = ({item, selectedItems, onChange}) => {
 
   return (
     <TouchableOpacity
-      // style={active ? [styles.activeCheckBox] : styles.checkBox}
+      style={active ? styles.activeContainerCheckBox : styles.containerCheckBox}
       onPress={() => {
         // if already selected, item is filtered out of selectedItemsArray
         if (active) {
@@ -34,7 +34,7 @@ const CheckBox = ({item, selectedItems, onChange}) => {
         resizeMode="contain"
       />
       {/*{require('../assets/test.png')}*/}
-      <Text style={active ? styles.activeCheckBox : styles.checkBox}>
+      <Text style={active ? styles.activeCheckBoxText : styles.unactiveCheckBoxText}>
         {item.value.substring(0, 3)}
       </Text>
     </TouchableOpacity>
@@ -42,17 +42,32 @@ const CheckBox = ({item, selectedItems, onChange}) => {
 };
 
 const styles = StyleSheet.create({
-  checkBox: {
-    color: 'white',
+  activeContainerCheckBox:{
+    flex:1,
+    backgroundColor: 'rgba(0,255,0,0.05)',
+
     alignItems: 'center',
-    marginHorizontal: 10,
-    textAlign: 'center',
+    borderStyle: 'solid',
+    borderWidth:1,
+    borderColor:'#78BD32',
+    borderRadius:12,
+    padding: 8,
+    marginHorizontal:3,
   },
-  activeCheckBox: {
-    color: '#78BD32',
+  containerCheckBox:{
+    flex:1,
     alignItems: 'center',
-    marginHorizontal: 10,
-    textAlign: 'center',
+    // 1 more padding cause of the border radius
+    padding: 9,
+    marginHorizontal:3,
+  },
+  unactiveCheckBoxText: {
+    marginTop:10,
+    color: 'white',
+  },
+  activeCheckBoxText: {
+    marginTop:10,
+    color: '#78BD32',
   },
 });
 

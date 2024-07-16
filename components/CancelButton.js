@@ -17,10 +17,12 @@ const styles = StyleSheet.create({
   cancelButton: {
     borderRadius: 5,
     paddingVertical: 5,
-    marginTop: 5,
-    marginHorizontal: 20,
+    marginVertical: 10,
     color: 'white',
     textAlign: 'center',
+    fontSize:25,
+    padding:8,
+
   },
 });
 export default CancelButton;

@@ -8,10 +8,14 @@ const ProgressBar = ({numberSuccessSteps, numberRemainingSteps}) => {
   const RemainingStepsArray = [];
   // two for loop to push the good amount of progressbar we want into the arrays
   for (let i = 0; i < numberSuccessSteps; i++) {
-    SuccessStepsArray.push(<View style={styles.progressBarFull} />);
+    SuccessStepsArray.push(
+      <View key={i + 'success'} style={styles.progressBarFull} />,
+    );
   }
   for (let i = 0; i < numberRemainingSteps; i++) {
-    RemainingStepsArray.push(<View style={styles.progressBarEmpty} />);
+    RemainingStepsArray.push(
+      <View key={i + 'remaining'} style={styles.progressBarEmpty} />,
+    );
   }
   // return them in a view
   return (
@@ -28,7 +32,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   progressBarEmpty: {
-    marginVertical: 20,
+    marginVertical: 10,
     borderRadius: 5,
     borderWidth: 1,
     padding: 2,
@@ -38,13 +42,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey',
   },
   progressBarFull: {
-    marginVertical: 20,
+    marginVertical: 10,
     borderRadius: 5,
     borderWidth: 1,
     padding: 2,
     flex: 1,
     borderColor: 'black',
-    backgroundColor: 'green',
+    backgroundColor: '#78BD32',
   },
 });
 export default ProgressBar;

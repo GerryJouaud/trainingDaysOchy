@@ -1,6 +1,7 @@
 import {StyleSheet, View} from 'react-native';
 import CheckBoxList from './components/CheckBoxList';
 import {useState} from 'react';
+import CancelButton from './components/CancelButton';
 
 function App() {
   // 'useState' Hook, with an empty array as initial state
